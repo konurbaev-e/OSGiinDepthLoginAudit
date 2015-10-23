@@ -28,7 +28,7 @@ public class LoginEventPublisher {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public void sendTravelEvent(String hotel) {
         Dictionary payload = new Properties();
-        payload.put("hotel", "Kempinski");
+        payload.put("hotel", hotel);
         payload.put("timestamp", System.currentTimeMillis());
 
         Event event = new Event(TravelEventConstants.TOPIC, payload);
