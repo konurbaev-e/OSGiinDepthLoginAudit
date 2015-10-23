@@ -1,8 +1,8 @@
-package org.konurbaev.loginaudit.subscriber;
+package org.konurbaev.loginaudit.publisher;
 
 public interface LoginEventConstants {
 
-    final static String TOPIC_NAME = "manning/osgi/login";
+    final static String TOPIC = "konurbaev/login";
 
     final static String USERID = "userid";
 

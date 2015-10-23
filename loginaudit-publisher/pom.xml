@@ -16,7 +16,7 @@
     <description>loginaudit-subscriber</description>
 
     <properties>
-        <bundle.namespace>org.konurbaev.loginaudit.subscriber</bundle.namespace>
+        <bundle.namespace>org.konurbaev.loginaudit.publisher</bundle.namespace>
     </properties>
 
     <dependencies>
@@ -84,7 +84,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-Activator>${bundle.namespace}.NotificationBrokerFactoryActivator</Bundle-Activator>
+                        <Bundle-Activator>${bundle.namespace}.PublisherActivator</Bundle-Activator>
                     </instructions>
                 </configuration>
             </plugin>
