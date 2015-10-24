@@ -8,7 +8,7 @@
     <artifactId>loginaudit-project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>loginaudit-subscriber</module>
+        <module>loginaudit-publisher</module>
     </modules>
     <packaging>pom</packaging>
     <name>loginaudit-project</name>

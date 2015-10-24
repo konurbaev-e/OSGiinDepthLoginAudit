@@ -9,11 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>loginaudit-subscriber</artifactId>
+    <artifactId>loginaudit-publisher</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>loginaudit-subscriber</name>
-    <description>loginaudit-subscriber</description>
+    <name>loginaudit-publisher</name>
+    <description>loginaudit-publisher</description>
 
     <properties>
         <bundle.namespace>org.konurbaev.loginaudit.publisher</bundle.namespace>
