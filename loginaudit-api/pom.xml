@@ -9,23 +9,17 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>loginaudit-publisher</artifactId>
+    <artifactId>loginaudit-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>loginaudit-publisher</name>
-    <description>loginaudit-publisher</description>
+    <name>loginaudit-api</name>
+    <description>loginaudit-api</description>
 
     <properties>
-        <bundle.namespace>org.konurbaev.loginaudit.publisher</bundle.namespace>
+        <bundle.namespace>org.konurbaev.loginaudit.api</bundle.namespace>
     </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.konurbaev.loginaudit</groupId>
-            <artifactId>loginaudit-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
         <!-- Provided OSGi Dependencies -->
         <dependency>
@@ -47,17 +41,7 @@
         <!-- Provided Dependencies -->
         <dependency>
             <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
             <artifactId>org.apache.felix.scr.annotations</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -100,12 +84,11 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                       <Bundle-Activator>${bundle.namespace}.PublisherActivator</Bundle-Activator>
+
                     </instructions>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
 </project>

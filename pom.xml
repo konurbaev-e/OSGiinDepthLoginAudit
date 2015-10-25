@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>loginaudit-publisher</module>
+        <module>loginaudit-api</module>
+        <module>greeter-service</module>
     </modules>
     <packaging>pom</packaging>
     <name>loginaudit-project</name>
@@ -32,8 +34,7 @@
                 <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.compendium</artifactId>
                 <version>5.0.0</version>
-                <!--scope>provided</scope-->
-            </dependency>
+              </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.enterprise</artifactId>
@@ -43,7 +44,7 @@
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.framework</artifactId>
-                <version>5.0.1</version>
+                <version>5.4.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
@@ -83,12 +84,12 @@
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.webconsole.plugins.packageadmin</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.2</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.configadmin</artifactId>
-                <version>1.8.6</version>
+                <version>1.8.8</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
@@ -107,31 +108,37 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
-                <artifactId>org.apache.felix.http.jetty</artifactId>
-                <version>3.0.2</version>
+                    <artifactId>org.apache.felix.http.jetty</artifactId>
+                <version>3.1.2</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.http.api</artifactId>
-                <version>2.3.2</version>
+                <version>3.0.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.http.base</artifactId>
-                <version>2.4.0</version>
+                <version>3.0.2</version>
             </dependency>
 
             <!-- Declarative Services support -->
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.scr</artifactId>
-                <version>1.8.2</version>
+                <version>2.0.2</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.scr.annotations</artifactId>
                 <version>1.9.12</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+                <version>1.2.8</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.apache.servicemix.bundles</groupId>
                 <artifactId>org.apache.servicemix.bundles.quartz</artifactId>
@@ -152,7 +159,7 @@
             <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
-                <version>6.8.5</version>
+                <version>6.9.8</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -164,7 +171,7 @@
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-all</artifactId>
-                <version>1.9.5</version>
+                <version>1.10.19</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
@@ -181,7 +188,7 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>2.5.4</version>
+                    <version>3.0.0</version>
                     <extensions>true</extensions>
                     <configuration>
                         <instructions>
@@ -192,6 +199,8 @@
                                 Bnd-LastModified,Built-By,Private-Package,Tool,Build-Jdk,Include-Resource,Ignore-Package,Private-Package,Bundle-DocURL
                             </_removeheaders>
                             <Include-Resource>{maven-resources}</Include-Resource>
+                            <_dsannotations>*</_dsannotations>
+                            <Service-Component>*</Service-Component>
                         </instructions>
                     </configuration>
                 </plugin>

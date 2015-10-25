@@ -1,42 +1,40 @@
 package org.konurbaev.loginaudit.publisher;
 
-import org.apache.felix.scr.annotations.Reference;
+import org.apache.felix.scr.annotations.*;
+import org.konurbaev.loginaudit.api.*;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.event.EventAdmin;
 
+@Component(
+        name = "org.konurbaev.loginaudit.publisher.activator",
+        immediate = true
+)
 public class PublisherActivator implements BundleActivator {
 
     @Reference
-    EventAdmin eventAdmin;
+    private LoginEvent loginEvent;
+//    @Reference
+//    private TravelEvent travelEvent;
 
-    public void start(BundleContext context) throws Exception {
-        LoginEventPublisher publisher = getPublisher(context);
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public void start(BundleContext bundleContext) throws Exception {
+        System.out.println("PublisherActivator start is starting...");
 
-        publisher.sendLoginEvent("anonymous");
-        publisher.sendLoginEvent("alex");
+        //old school code
+        ServiceReference serviceReference = bundleContext.getServiceReference(LoginEvent.class.getName());
 
-        publisher.sendTravelEvent("Coral Beach");
-        publisher.sendTravelEvent("Novotel");
-    }
+        LoginEvent oldLoginEvent = (LoginEvent) bundleContext.getService(serviceReference);
 
-    private LoginEventPublisher getPublisher(BundleContext context) {
+        oldLoginEvent.sendLoginEvent("oldschoolcode");
 
-        //ServiceReference ref = context.getServiceReference(EventAdmin.class.getName());
+        //new generation style
+        loginEvent.sendLoginEvent("newgenerationstyle");
 
-        LoginEventPublisher publisher = null;
-        publisher = new LoginEventPublisher(eventAdmin);
-
-        //if (ref != null) {
-            //EventAdmin eventAdmin = (EventAdmin) context.getService(ref);
-
-        //}
-
-        return publisher;
+        System.out.println("PublisherActivator start is ending...");
     }
 
     public void stop(BundleContext context) throws Exception {
-        // ...
+        System.out.println("Stopping Publisher...");
     }
 }
