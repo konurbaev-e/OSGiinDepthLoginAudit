@@ -14,7 +14,7 @@ import org.osgi.service.event.EventAdmin;
         immediate = true
 )
 @Service(LoginEvent.class)
-public class LoginEventPublisher implements LoginEvent {
+public class LoginEventImpl implements LoginEvent {
 
     @Reference
     private EventAdmin admin;
@@ -27,7 +27,7 @@ public class LoginEventPublisher implements LoginEvent {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void sendLoginEvent(String userid) {
-        System.out.println("sendLoginEvent is starting...");
+        System.out.println("sendLoginEvent is starting with " + userid);
         Dictionary payload = new Properties();
         payload.put(LoginEvent.USERID, userid);
         payload.put(LoginEvent.TIMESTAMP, System.currentTimeMillis());

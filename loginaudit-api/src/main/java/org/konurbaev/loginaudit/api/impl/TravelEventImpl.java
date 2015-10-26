@@ -14,7 +14,7 @@ import java.util.Properties;
         immediate = true
 )
 @Service(TravelEvent.class)
-public class TravelEventPublisher implements TravelEvent {
+public class TravelEventImpl implements TravelEvent {
 
     @Reference
     private EventAdmin admin;
@@ -27,7 +27,7 @@ public class TravelEventPublisher implements TravelEvent {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void sendTravelEvent(String hotel) {
-        System.out.println("sendTravelEvent is starting...");
+        System.out.println("sendTravelEvent is starting with " + hotel);
         Dictionary payload = new Properties();
         payload.put(TravelEvent.HOTEL, hotel);
         payload.put(TravelEvent.TIMESTAMP, System.currentTimeMillis());
