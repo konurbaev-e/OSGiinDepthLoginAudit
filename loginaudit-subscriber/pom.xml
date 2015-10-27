@@ -100,7 +100,6 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <!--<Bundle-Activator>${bundle.namespace}.PublisherActivator</Bundle-Activator>-->
                     </instructions>
                 </configuration>
             </plugin>

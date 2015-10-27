@@ -10,7 +10,6 @@
     <modules>
         <module>loginaudit-publisher</module>
         <module>loginaudit-api</module>
-        <module>greeter-service</module>
         <module>loginaudit-subscriber</module>
     </modules>
     <packaging>pom</packaging>

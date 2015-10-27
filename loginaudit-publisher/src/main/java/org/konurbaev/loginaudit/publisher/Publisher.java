@@ -20,7 +20,7 @@ public class Publisher {
     @Activate
     private void start() {
         loginEvent.sendLoginEvent("alex");
-        travelEvent.sendTravelEvent("john");
+        travelEvent.sendTravelEvent("mariot");
     }
 
 }
