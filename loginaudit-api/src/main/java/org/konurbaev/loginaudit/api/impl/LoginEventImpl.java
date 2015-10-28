@@ -8,6 +8,8 @@ import org.konurbaev.loginaudit.api.LoginEvent;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component(
         name = "org.konurbaev.loginaudit.publisher.login",
@@ -16,12 +18,14 @@ import org.osgi.service.event.EventAdmin;
 @Service(LoginEvent.class)
 public class LoginEventImpl implements LoginEvent {
 
+    private final static Logger logger = LoggerFactory.getLogger(LoginEventImpl.class);
+
     @Reference
     private EventAdmin admin;
 
     @Activate
     private void start() {
-        System.out.println("Activating LoginEventPublisher");
+        logger.debug("Activating LoginEventPublisher");
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
