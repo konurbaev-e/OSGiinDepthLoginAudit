@@ -16,12 +16,6 @@
     <name>loginaudit-project</name>
     <description>loginaudit-project</description>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <!-- Core OSGi -->
@@ -245,6 +239,9 @@
                 <version>3.3</version>
                 <inherited>true</inherited>
                 <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>

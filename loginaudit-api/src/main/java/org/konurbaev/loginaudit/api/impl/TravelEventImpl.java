@@ -5,6 +5,8 @@ import org.konurbaev.loginaudit.api.TravelEvent;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Dictionary;
 import java.util.Properties;
@@ -16,18 +18,20 @@ import java.util.Properties;
 @Service(TravelEvent.class)
 public class TravelEventImpl implements TravelEvent {
 
+    private final static Logger logger = LoggerFactory.getLogger(TravelEventImpl.class);
+
     @Reference
     private EventAdmin admin;
 
     @Activate
     private void start() {
-        System.out.println("Activating TravelEventPublisher");
+        logger.debug("Activating TravelEventPublisher");
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void sendTravelEvent(String hotel) {
-        System.out.println("sendTravelEvent is starting with " + hotel);
+        logger.debug("sendTravelEvent is starting with " + hotel);
         Dictionary payload = new Properties();
         payload.put(TravelEvent.HOTEL, hotel);
         payload.put(TravelEvent.TIMESTAMP, System.currentTimeMillis());
@@ -35,6 +39,6 @@ public class TravelEventImpl implements TravelEvent {
         Event event = new Event(TravelEvent.TOPIC, payload);
 
         admin.postEvent(event);
-        System.out.println("sendTravelEvent is ending...");
+        logger.debug("sendTravelEvent is ending...");
     }
 }

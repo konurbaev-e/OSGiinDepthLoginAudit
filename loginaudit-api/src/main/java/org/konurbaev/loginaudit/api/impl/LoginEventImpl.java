@@ -31,7 +31,7 @@ public class LoginEventImpl implements LoginEvent {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void sendLoginEvent(String userid) {
-        System.out.println("sendLoginEvent is starting with " + userid);
+        logger.debug("sendLoginEvent is starting with " + userid);
         Dictionary payload = new Properties();
         payload.put(LoginEvent.USERID, userid);
         payload.put(LoginEvent.TIMESTAMP, System.currentTimeMillis());
@@ -39,7 +39,7 @@ public class LoginEventImpl implements LoginEvent {
         Event event = new Event(LoginEvent.TOPIC, payload);
 
         admin.postEvent(event);
-        System.out.println("sendLoginEvent is ending...");
+        logger.debug("sendLoginEvent is ending...");
     }
 
 }

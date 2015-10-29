@@ -5,6 +5,9 @@ import org.konurbaev.loginaudit.api.LoginEvent;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 
 @Component(
@@ -17,15 +20,16 @@ import java.util.Arrays;
 @Service(EventHandler.class)
 public class LoginSubscriber implements EventHandler {
 
+    private final static Logger logger = LoggerFactory.getLogger(LoginSubscriber.class);
+
     @Activate
     private void start() {
-        System.out.println("Activating LoginSubscriber");
+        logger.debug("Activating LoginSubscriber");
     }
 
     public void handleEvent(Event event) {
-        System.out.println("LoginSubscriber received event on topic = " + event.getTopic());
-        System.out.println("LoginSubscriber tries Arrays.stream(event.getPropertyNames()):");
-        Arrays.stream(event.getPropertyNames()).forEach(value -> System.out.println("\t" + value + " = " + event.getProperty(value)));
+        logger.debug("LoginSubscriber received event on topic = " + event.getTopic());
+        Arrays.stream(event.getPropertyNames()).forEach(value -> logger.debug("\t" + value + " = " + event.getProperty(value)));
     }
 
 }
