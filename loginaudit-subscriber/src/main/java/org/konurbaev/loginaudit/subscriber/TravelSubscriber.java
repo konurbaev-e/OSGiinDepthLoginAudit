@@ -30,7 +30,7 @@ public class TravelSubscriber implements EventHandler {
 
     public void handleEvent(Event event) {
         logger.debug("TravelSubscriber received event on topic = " + event.getTopic());
-        Arrays.stream(event.getPropertyNames()).forEach(value -> logger.debug("\t" + value + " = " + event.getProperty(value)));
+        Arrays.stream(event.getPropertyNames()).forEach(value -> logger.debug(value + " = " + event.getProperty(value)));
     }
 
 }
