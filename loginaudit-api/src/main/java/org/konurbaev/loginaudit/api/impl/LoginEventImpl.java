@@ -1,11 +1,10 @@
 package org.konurbaev.loginaudit.api.impl;
 
 import java.util.Dictionary;
-import java.util.Properties;
+import java.util.Hashtable;
 
 import org.apache.felix.scr.annotations.*;
 import org.konurbaev.loginaudit.api.LoginEvent;
-import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.slf4j.Logger;
@@ -32,7 +31,7 @@ public class LoginEventImpl implements LoginEvent {
     @Override
     public void sendLoginEvent(String userid) {
         logger.debug("sendLoginEvent is starting with " + userid);
-        Dictionary payload = new Properties();
+        Dictionary payload = new Hashtable();
         payload.put(LoginEvent.USERID, userid);
         payload.put(LoginEvent.TIMESTAMP, System.currentTimeMillis());
 

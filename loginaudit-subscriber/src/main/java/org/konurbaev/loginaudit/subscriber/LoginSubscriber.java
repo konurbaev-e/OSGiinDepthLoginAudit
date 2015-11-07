@@ -7,7 +7,6 @@ import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Arrays;
 
 @Component(

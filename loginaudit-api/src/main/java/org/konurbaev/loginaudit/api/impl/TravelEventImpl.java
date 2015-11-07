@@ -2,14 +2,13 @@ package org.konurbaev.loginaudit.api.impl;
 
 import org.apache.felix.scr.annotations.*;
 import org.konurbaev.loginaudit.api.TravelEvent;
-import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Dictionary;
-import java.util.Properties;
+import java.util.Hashtable;
 
 @Component(
         name = "org.konurbaev.loginaudit.publisher.travel",
@@ -32,7 +31,7 @@ public class TravelEventImpl implements TravelEvent {
     @Override
     public void sendTravelEvent(String hotel) {
         logger.debug("sendTravelEvent is starting with " + hotel);
-        Dictionary payload = new Properties();
+        Dictionary payload = new Hashtable();
         payload.put(TravelEvent.HOTEL, hotel);
         payload.put(TravelEvent.TIMESTAMP, System.currentTimeMillis());
 

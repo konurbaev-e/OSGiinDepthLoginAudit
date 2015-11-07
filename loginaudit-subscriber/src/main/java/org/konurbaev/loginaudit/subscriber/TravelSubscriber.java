@@ -7,9 +7,7 @@ import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Arrays;
-import java.util.Dictionary;
 
 @Component(
         name = "org.konurbaev.loginaudit.travelsubscriber",
