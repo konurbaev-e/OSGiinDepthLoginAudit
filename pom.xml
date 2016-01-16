@@ -11,6 +11,7 @@
         <module>loginaudit-publisher</module>
         <module>loginaudit-api</module>
         <module>loginaudit-subscriber</module>
+        <module>inter-services</module>
     </modules>
     <packaging>pom</packaging>
     <name>loginaudit-project</name>
