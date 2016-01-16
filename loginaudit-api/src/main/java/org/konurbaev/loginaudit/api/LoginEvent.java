@@ -2,14 +2,14 @@ package org.konurbaev.loginaudit.api;
 
 public interface LoginEvent {
 
-    static final String TOPIC = "konurbaev/login";
+    String TOPIC = "konurbaev/login";
 
-    static final String USERID = "userid";
+    String USERID = "userid";
 
-    static final String TIMESTAMP = "timestamp";
+    String TIMESTAMP = "timestamp";
 
-    default public void sendLoginEvent(String userid) {
+    default void sendLoginEvent(String userid) {
 
-    };
+    }
 
 }

@@ -2,14 +2,14 @@ package org.konurbaev.loginaudit.api;
 
 public interface TravelEvent {
 
-    static final String TOPIC = "konurbaev/travelagent/hotel";
+    String TOPIC = "konurbaev/travelagent/hotel";
 
-    static final String HOTEL = "hotel";
+    String HOTEL = "hotel";
 
-    static final String TIMESTAMP = "timestamp";
+    String TIMESTAMP = "timestamp";
 
-    default public void sendTravelEvent(String userid) {
+    default void sendTravelEvent(String userid) {
 
-    };
+    }
 
 }
