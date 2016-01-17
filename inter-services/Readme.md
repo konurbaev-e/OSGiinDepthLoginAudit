@@ -27,3 +27,9 @@ It is because of the bug: https://issues.apache.org/jira/browse/FELIX-4417
 But this bug does not prevent both services to be initialized.
 
 As workaround you can use API instead of declarative annotations where you will check if the target service is up and then to use it.
+
+
+Useful links:
+http://wiki.osgi.org/wiki/Declarative_Services#Laziness
+
+http://events.linuxfoundation.org/sites/events/files/slides/ApacheConNA-BuildingOSGiComponents_0.pdf
